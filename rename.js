@@ -1,15 +1,18 @@
 const fs = require('fs');
 const path = require('path');
-var ssdf = "[Kamigami] Rewrite - 01 [1920x1080 x265 Ma10p AAC Sub(Chs,Cht,Jap)]";
 
-// const dirPath = "Users\Allen\Documents\GitHub\RenSub\test\result";
-
+var wantedFileName = process.argv[2];
+var wantedFileNamePart1 = wantedFileName.split('%')[0];
+var wantedFileNamePart2 = wantedFileName.split('%')[2];
+var index = 1;
 
 fs.readdir(__dirname, function (err, files) {
-    files.forEach(function (fileName, index) {
+    files.forEach(function (fileName) {
         var ext = path.extname(fileName);
         if ((ext === '.srt') || (ext === '.ass')) {
-            fs.renameSync(fileName, ssdf + index.toString() + ext);
+            var indexStr = index < 10 ? ("0" + index.toString()) : index.toString();
+            fs.renameSync(fileName, wantedFileNamePart1 + indexStr + wantedFileNamePart2 + ext);
+            index++;
         }
     });
 });
