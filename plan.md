@@ -1,0 +1,1 @@
+1. [Kamigami] Rewrite [1920x1080 x265 Ma10p AAC Sub(Chs,Cht,Jap)]/[Kamigami] Rewrite - 01 [1920x1080 x265 Ma10p AAC Sub(Chs,Cht,Jap)].mkv
