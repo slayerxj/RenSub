@@ -9,7 +9,7 @@ fs.readdir(__dirname, function (err, files) {
     files.forEach(function (fileName, index) {
         var ext = path.extname(fileName);
         if ((ext === '.srt') || (ext === '.ass')) {
-            fs.renameSync(fileName, ssdf + index.toString());
+            fs.renameSync(fileName, ssdf + index.toString() + ext);
         }
     });
 });
