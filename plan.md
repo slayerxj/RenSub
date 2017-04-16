@@ -1,1 +1,5 @@
-1. [Kamigami] Rewrite [1920x1080 x265 Ma10p AAC Sub(Chs,Cht,Jap)]/[Kamigami] Rewrite - 01 [1920x1080 x265 Ma10p AAC Sub(Chs,Cht,Jap)].mkv
+1. can rename
+2. can rename multiple files
+3. can recognize ext
+4. can accept parameters
+5. handle path problem
