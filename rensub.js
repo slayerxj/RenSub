@@ -1,20 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 
-var wantedFileName = process.argv[2];
-var wantedFileNamePart1 = wantedFileName.split('%')[0];
-var needPrefix = wantedFileName.split('%')[1];
-var prefix = (needPrefix == 'ii') ? '0' : '';
-var wantedFileNamePart2 = wantedFileName.split('%')[2];
-var index = 1;
+var videoDir = process.argv[2];
+var subDir = process.argv[3];
+var index = 0;
 
-fs.readdir(__dirname, function (err, files) {
-    files.forEach(function (fileName) {
-        var ext = path.extname(fileName);
-        if ((ext === '.srt') || (ext === '.ass')) {
-            var indexStr = index < 10 ? (prefix + index.toString()) : index.toString();
-            fs.renameSync(fileName, wantedFileNamePart1 + indexStr + wantedFileNamePart2 + ext);
-            index++;
+fs.readdir(videoDir, function (err, videoFiles) {
+    fs.readdir(subDir, function (err, subFiles) {
+        if (videoFiles.length === subFiles.length) {
+            subFiles.forEach(function (fileName) {
+                var videoFileName = path.parse(videoFiles[index]).name;
+                var ext = path.extname(fileName);
+                if ((ext === '.srt') || (ext === '.ass')) {
+                    fs.renameSync(subDir + path.sep + fileName, subDir + path.sep + videoFileName + ext);
+                    index++;
+                }
+            });
         }
     });
 });

@@ -10,7 +10,8 @@
             "name": "Launch Program",
             "program": "${file}",
             "args": [
-                "[Kamigami] Rewrite - %ii% [1920x1080 x265 Ma10p AAC Sub(Chs,Cht,Jap)]"
+                "C:\\workdir\\video",
+                "C:\\workdir\\sub"
             ]
         },
         {
